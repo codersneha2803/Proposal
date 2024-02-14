@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #poem-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 25px;
+      color: #E3A4C5;
+      z-index: 1; /* Ensure the poem is above the background image */
+    }
+
+    #love-you {
+      display: none;
+    }
+
+    .heart-symbol {
+      font-size: 100px; /* Set the desired font size */
+      color: red; /* Set the desired color */
+    }
+
+    .heart-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw; /* Cover the entire viewport width */
+      height: 100vh; /* Cover the entire viewport height */
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Add your additional styles here */
+    .additional-style {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      #poem-container {
+        width: 80%; /* Set a smaller width for better display on small screens */
+      }
+      #poem-container pre {
+        white-space: pre-wrap; /* Allow text to wrap */
+      }
+    }
+  </style>
+  <title>Love Poems</title>
+</head>
+<body>
+  <audio id="background-music" autoplay loop>
+    <source src="background-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <div id="poem-container" class="additional-style">
+    <pre id="poem1">
+      In distance's realm, my heart echoes your name,
+      Yearning for your presence, forever the same.
+      Each passing day, a burden hard to bear,
+      Without you near, life's colors fade to despair.
+    </pre>
+    <pre id="poem2" style="display: none;">
+      How long must I wait for our souls to collide,
+      To bridge the gap, have you back by my side?
+      Thoughts of you consume my every thought,
+      Wondering where you are, what destiny's brought.
+    </pre>
+    <pre id="poem3" style="display: none;">
+        With each sunrise, I ache for our eyes to meet,
+        To feel your warmth, our connection complete.
+        For in your gaze, my world finds its tether,
+        Our souls entwined, bound by love's weather.
+    </pre>
+
+    <pre id="poem4" style="display: none;">
+       In this emptiness, I find solace in dreams,
+      Until the day arrives when reality redeems,
+      And I hold you close, our hearts intertwined,
+      For you are the missing piece I long to find.
+    </pre>
+
+    <p id="love-you" style="display: none;">
+    I love you more than words can express. <br>
+    <span class="heart-symbol">&#10084;</span>
+    </p>
+
+  </div>
+  
+  <div class="heart-bg"></div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var backgroundMusic = document.getElementById("background-music");
+
+      setTimeout(function () {
+        document.getElementById("poem1").style.display = "none";
+        document.getElementById("poem2").style.display = "block";
+      }, 6000);
+
+      setTimeout(function () {
+        document.getElementById("poem2").style.display = "none";
+        document.getElementById("poem3").style.display = "block";
+      }, 12000);
+
+       setTimeout(function () {
+        document.getElementById("poem3").style.display = "none";
+        document.getElementById("poem4").style.display = "block";
+      }, 18000);
+
+      setTimeout(function () {
+        document.getElementById("poem4").style.display = "none";
+        document.getElementById("love-you").style.display = "block";
+      }, 24000);
+
+      setTimeout(function () {
+        backgroundMusic.pause();
+      }, 30000);
+
+      console.log("Additional JavaScript code executed");
+    });
+  </script>
+</body>
+</html>
